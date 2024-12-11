@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>เลือกภาพยนตร์ - YIPPE TICKET</title>
+    <link rel="stylesheet" href="Homepage.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo-container">
+            <img src="popcorn.png" alt="YIPPE TICKET Logo" class="logo">
+            <span class="logo-text">YIPPE TICKET</span>
+        </div>
+        <div class="nav-links">
+            <a href="Homepage.html">Homepage</a>
+            <a href="movie.html">Movie Ticket</a>
+            <a href="login.html">Logout</a>
+        </div>
+    </nav>
+
+    <!-- Movie Selection -->
+    <div class="movie-selection-container">
+        <h1>M O V I E S</h1>
+        <div class="movie-cards">
+            <!-- Movie Card 1 -->
+            <div class="movie-card">
+                <img src="venom.jpg" alt="Movie 1">
+                <div class="movie-info">
+                    <h3>VENOM</h3>
+                    <p>Venom: The Last Dance (2024)
+                        เวน่อม มหาศึกอสูรอหังการ</p>
+                    <div class="showtime-options">
+                        <button class="showtime-btn" data-time="10:00">10:00 AM</button>
+                        <button class="showtime-btn" data-time="13:00">01:00 PM</button>
+                        <button class="showtime-btn" data-time="16:00">04:00 PM</button>
+                        <button class="showtime-btn" data-time="19:00">07:00 PM</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Movie Card 2 -->
+            <div class="movie-card">
+                <img src="joker.jpg" alt="Movie 2">
+                <div class="movie-info">
+                    <h3>JOKER</h3>
+                    <p>Folie à Deux (2024)
+                        โจ๊กเกอร์ โฟลีย์ อา เดอ, Joker 2</p>
+                    <div class="showtime-options">
+                        <button class="showtime-btn" data-time="10:00">10:00 AM</button>
+                        <button class="showtime-btn" data-time="13:00">01:00 PM</button>
+                        <button class="showtime-btn" data-time="16:00">04:00 PM</button>
+                        <button class="showtime-btn" data-time="19:00">07:00 PM</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Movie Card 3 -->
+            <div class="movie-card">
+                <img src="Gladiator II.jpg" alt="Movie 2">
+                <div class="movie-info">
+                    <h3>GLSDISTOR</h3>
+                    <p>Gladiator II (2024)
+                        นักรบผู้กล้า ผ่าแผ่นดินทรราช 2</p>
+                    <div class="showtime-options">
+                        <button class="showtime-btn" data-time="10:00">10:00 AM</button>
+                        <button class="showtime-btn" data-time="13:00">01:00 PM</button>
+                        <button class="showtime-btn" data-time="16:00">04:00 PM</button>
+                        <button class="showtime-btn" data-time="19:00">07:00 PM</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Movie Card 4 -->
+            <div class="movie-card">
+                <img src="redone.jpg" alt="Movie 2">
+                <div class="movie-info">
+                    <h3>RED ONE</h3>
+                    <p>Red One (2024)
+                        เรด วัน </p>
+                    <div class="showtime-options">
+                        <button class="showtime-btn" data-time="10:00">10:00 AM</button>
+                        <button class="showtime-btn" data-time="13:00">01:00 PM</button>
+                        <button class="showtime-btn" data-time="16:00">04:00 PM</button>
+                        <button class="showtime-btn" data-time="19:00">07:00 PM</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Modal -->
+            <div id="showtimeModal" class="modal">
+                <div class="modal-content">
+                    <span class="close-btn">&times;</span>
+                    <h2>"Selected Seat"</h2>
+                    <p id="selected-movie"></p>
+                    <p id="selected-time"></p>
+                    
+                    <!-- Seat Selection -->
+                    <div id="seat-selection">
+
+                        <!-- ข้อความแสดงชนิดที่นั่ง -->
+                        <div id="seat-info">
+                            <p><span class="normal-seat">Normal seat</span>: 100 บาท | <span class="vip-seat">VIP seats</span>: 200 บาท</p>
+                        </div>
+
+                        <h3>เลือกที่นั่ง</h3>
+                        <div id="seats">
+                            <div class="row">
+                                <!-- ที่นั่งธรรมดา -->
+                                <button class="seat" data-price="100">A1</button>
+                                <button class="seat" data-price="100">A2</button>
+                                <button class="seat" data-price="100">A3</button>
+                                <button class="seat" data-price="100">A4</button>
+                                <!-- ที่นั่ง VIP -->
+                                <button class="seat vip" data-price="200">A5</button>
+                                <button class="seat vip" data-price="200">A6</button>
+                            </div>
+
+                            <div class="row">
+                                <button class="seat" data-price="100">B1</button>
+                                <button class="seat" data-price="100">B2</button>
+                                <button class="seat" data-price="100">B3</button>
+                                <button class="seat" data-price="100">B4</button>
+                                <button class="seat vip" data-price="200">B5</button>
+                                <button class="seat vip" data-price="200">B6</button>
+                            </div>
+
+                            <div id="seats">
+                                <div class="row">
+                                    <button class="seat" data-price="100">C1</button>
+                                    <button class="seat" data-price="100">C2</button>
+                                    <button class="seat" data-price="100">C3</button>
+                                    <button class="seat" data-price="100">C4</button>
+                                    <button class="seat vip" data-price="200">C5</button>
+                                    <button class="seat vip" data-price="200">C6</button>
+                                </div>
+                        </div>
+                    </div>
+
+                    <!-- Summary -->
+                    <div id="summary">
+                        <h4>ที่นั่งที่เลือก:</h4>
+                        <ul id="selected-seats"></ul>
+                        <p>รวมราคา: <span id="total-price">0</span> บาท</p>
+                    </div>
+
+                    <button class="confirm-btn">ยืนยัน</button>
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

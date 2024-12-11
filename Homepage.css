@@ -1,0 +1,547 @@
+/* Reset Styles */
+* {
+    margin: 0; /* ลบระยะขอบของทุกองค์ประกอบ */
+    padding: 0; /* ลบช่องว่างภายในทุกองค์ประกอบ */
+    box-sizing: border-box; /* เปลี่ยนการคำนวณขนาดให้นับรวมขอบและช่องว่างภายใน */
+}
+
+/* Body Styles */
+body {
+    margin: 0; /* ลบระยะขอบของหน้าเว็บทั้งหมด */
+    padding: 0; /* ลบพื้นที่ว่างภายในหน้าเว็บ */
+    font-family: 'Roboto', sans-serif; /* กำหนดฟอนต์เป็น Roboto */
+    background: url('cinema.jpg') no-repeat center center fixed; /* ใช้ภาพพื้นหลัง, จัดให้อยู่ตรงกลาง, และไม่ให้พื้นหลังเลื่อน */
+    background-size: cover; /* ปรับภาพพื้นหลังให้เต็มพื้นที่โดยไม่ผิดสัดส่วน */
+    color: rgb(244, 242, 242); /* ตั้งสีข้อความเป็นสีขาวอ่อน */
+    position: relative; /* ใช้เพื่อให้ pseudo-element ทำงานได้ */
+    z-index: 1; /* จัดลำดับให้เนื้อหาของ <body> อยู่ข้างหน้าภาพพื้นหลัง */
+}
+
+/* Add Overlay Effect */
+body::before {
+    content: ""; /* เพิ่ม pseudo-element ก่อนเนื้อหาของ <body> */
+    position: fixed; /* กำหนดให้ pseudo-element อยู่คงที่ */
+    top: 0; /* เริ่มจากขอบบนสุดของหน้า */
+    left: 0; /* เริ่มจากขอบซ้ายสุดของหน้า */
+    width: 100%; /* ขยายให้กว้างเต็มหน้า */
+    height: 100%; /* ขยายให้สูงเต็มหน้า */
+    background: rgba(0, 0, 0, 0.5); /* เพิ่มเลเยอร์สีดำโปร่งแสง */
+    z-index: -1; /* ให้เลเยอร์อยู่ด้านหลังเนื้อหาทั้งหมด */
+}
+
+/* Navbar */
+.navbar {
+    display: flex; /* ใช้ Flexbox เพื่อจัดการเลย์เอาต์ */
+    justify-content: space-between; /* จัดระยะห่างระหว่างเนื้อหาด้านซ้ายและขวา */
+    align-items: center; /* จัดแนวตั้งให้อยู่กลาง */
+    padding: 1rem 2rem; /* ตั้งค่าระยะห่างภายใน */
+    background-color: #003366f6; /* กำหนดสีพื้นหลังเป็นสีน้ำเงินเข้ม */
+    color: rgb(253, 253, 253); /* กำหนดสีข้อความเป็นขาว */
+}
+
+.logo-container {
+    display: flex; /* ใช้ Flexbox เพื่อจัดตำแหน่งโลโก้ */
+    align-items: center; /* จัดโลโก้ให้อยู่แนวกลางแนวตั้ง */
+}
+
+.logo {
+    height: 40px; /* กำหนดขนาดความสูงของโลโก้ */
+    margin-right: 10px; /* เพิ่มระยะห่างขวาของโลโก้ */
+}
+
+.logo-text {
+    font-size: 1.5rem; /* ขนาดฟอนต์ข้อความ */
+    font-weight: bold; /* ตัวหนาของข้อความ */
+}
+
+.nav-links a {
+    text-decoration: none; /* เอาเส้นใต้ของลิงก์ออก */
+    color: rgb(245, 244, 244); /* สีของข้อความเป็นขาว */
+    margin-left: 20px; /* เพิ่มระยะห่างระหว่างลิงก์ */
+    font-size: 1rem; /* ขนาดฟอนต์ */
+    font-weight: bold; /* ตัวหนาของข้อความ */
+    transition: color 0.3s; /* เพิ่มเอฟเฟกต์เปลี่ยนสีเมื่อวางเมาส์ */
+}
+
+.nav-links a:hover {
+    color: #ffcc00; /* เมื่อวางเมาส์ให้เปลี่ยนสีเป็นสีเหลือง */
+}
+
+/* Homepage Content */
+.homepage {
+    text-align: center; /* จัดข้อความให้อยู่กลาง */
+    padding: 3rem 1rem; /* เพิ่มพื้นที่ภายใน */
+}
+
+.homepage h1 {
+    font-size: 2.5rem; /* ขนาดฟอนต์ของหัวข้อ */
+    margin-bottom: 1rem; /* เพิ่มระยะห่างด้านล่าง */
+    color: #ffffff; /* สีข้อความเป็นขาว */
+}
+
+.homepage p {
+    font-size: 1.2rem; /* ขนาดฟอนต์ของข้อความ */
+    margin-bottom: 2rem; /* เพิ่มระยะห่างด้านล่าง */
+    color: #ffffff; /* สีข้อความเป็นขาว */
+}
+
+
+/* Login Container */
+.login-container {
+    max-width: 500px; /* ความกว้างสูงสุดของกล่อง */
+    margin: 5rem auto; /* จัดให้อยู่ตรงกลาง */
+    padding: 2rem; /* เพิ่มพื้นที่ภายใน */
+    background: rgba(254, 253, 255, 0.89); /* พื้นหลังโปร่งแสง */
+    border-radius: 50px; /* มุมโค้ง */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* เพิ่มเงา */
+    text-align: center; /* จัดข้อความให้กลาง */
+}
+
+.login-container h1 {
+    font-size: 2rem; /* ขนาดฟอนต์ของหัวข้อ */
+    margin-bottom: 1.5rem; /* เพิ่มระยะห่างด้านล่าง */
+    color: #003366; /* สีฟ้าเข้ม */
+}
+
+.form-group {
+    margin-bottom: 1.5rem; /* เพิ่มระยะห่างด้านล่าง */
+    text-align: left; /* จัดข้อความให้อยู่ซ้าย */
+}
+
+.form-group label {
+    display: block; /* กำหนดให้ label เป็นบล็อก */
+    font-size: 1rem; /* ขนาดฟอนต์ของ label */
+    color: #003366; /* สีฟ้าเข้ม */
+    margin-bottom: 0.5rem; /* เพิ่มระยะห่างด้านล่าง */
+}
+
+.form-group input {
+    width: 100%; /* ขยายช่องกรอกข้อมูลให้เต็มความกว้าง */
+    padding: 0.8rem; /* เพิ่มพื้นที่ภายในช่องกรอกข้อมูล */
+    font-size: 1rem; /* ขนาดฟอนต์ */
+    border: 1px solid #ccc; /* ขอบเป็นสีเทา */
+    border-radius: 5px; /* มุมโค้ง */
+    outline: none; /* ไม่ให้มีเส้นขอบเมื่อมีการเลือกช่องกรอกข้อมูล */
+    transition: border-color 0.3s; /* เพิ่มการเปลี่ยนสีขอบเมื่อโฟกัส */
+}
+
+.form-group input:focus {
+    border-color: #003366; /* เปลี่ยนสีขอบเมื่อโฟกัส */
+}
+
+.btn {
+    background-color: #003366; /* สีพื้นหลังของปุ่ม */
+    color: rgb(255, 255, 255); /* สีข้อความของปุ่ม */
+    font-size: 1rem; /* ขนาดฟอนต์ของปุ่ม */
+    padding: 0.8rem 1.5rem; /* เพิ่มพื้นที่ภายใน */
+    border: none; /* ลบขอบของปุ่ม */
+    border-radius: 35px; /* มุมโค้ง */
+    cursor: pointer; /* เปลี่ยนเป็นรูปมือเมื่อวางเมาส์ */
+    transition: background-color 0.3s; /* เปลี่ยนสีพื้นหลังเมื่อวางเมาส์ */
+}
+
+.btn:hover {
+    background-color: #ffcc00; /* สีพื้นหลังเมื่อวางเมาส์ */
+    color: #003366; /* เปลี่ยนสีข้อความเมื่อวางเมาส์ */
+}
+
+.register-link {
+    margin-top: 1rem; /* เพิ่มระยะห่างด้านบน */
+    font-size: 0.9rem; /* ขนาดฟอนต์ */
+    color: rgb(4, 5, 65); /* กำหนดสีเป็นสีน้ำเงินเข้ม */
+}
+
+.register-link a {
+    color: #003366; /* สีลิงก์ */
+    text-decoration: none; /* เอาเส้นใต้ลิงก์ออก */
+    font-weight: bold; /* ตัวหนาของลิงก์ */
+}
+
+.register-link a:hover {
+    text-decoration: underline; /* เพิ่มเส้นใต้เมื่อวางเมาส์ */
+}
+
+/* Register Container */
+.register-container {
+    max-width: 500px;
+    margin: 5rem auto;
+    padding: 2rem;
+    background: rgba(254, 253, 255, 0.89);
+    border-radius: 50px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+/* Form Styles */
+.register-container h3 {
+    font-size: 2rem; /* ขนาดฟอนต์ของหัวข้อ */
+    margin-bottom: 1.5rem; /* เพิ่มระยะห่างด้านล่าง */
+    color: #003366; /* สีฟ้าเข้ม */
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    font-size: 1rem;
+    color: #003366;
+    margin-bottom: 0.5rem;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 0.8rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 30px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus {
+    border-color: #003366;
+}
+
+.btn {
+    background-color: #003366;
+    color: rgb(255, 255, 255);
+    font-size: 1rem;
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 35px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #ffcc00;
+    color: #003366;
+}
+
+/* Login Link */
+.login-link {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    color: rgb(4, 5, 65);
+}
+
+.login-link a {
+    color: #003366;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.login-link a:hover {
+    text-decoration: underline;
+}
+
+
+/* การตั้งค่าทั่วไป */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f1f1f1;
+}
+
+
+
+.nav-links a {
+    color: white;
+    margin-left: 20px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.nav-links a:hover {
+    color: #ffcc00;
+}
+
+/* Movie Selection */
+.movie-selection-container {
+    padding: 20px; /* เพิ่มระยะห่างภายในของคอนเทนเนอร์ */
+    text-align: center; /* จัดข้อความให้อยู่ตรงกลาง */
+}
+
+.movie-selection-container h1 {
+    font-size: 2rem; /* ขนาดตัวอักษรของหัวเรื่อง */
+    margin-bottom: 30px; /* เว้นระยะห่างด้านล่างของหัวเรื่อง */
+    color: #e6eaee; /* สีของข้อความ */
+}
+
+.movie-cards {
+    display: grid; /* ใช้ Grid Layout สำหรับจัดการที่นั่ง */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* สร้างคอลัมน์ที่สามารถปรับขนาดอัตโนมัติ */
+    gap: 20px; /* ระยะห่างระหว่างการ์ดภาพยนตร์ */
+    justify-items: center; /* จัดการการ์ดให้ชิดกลาง */
+}
+
+.movie-card {
+    background-color: rgba(255, 255, 255, 0.885); /* พื้นหลังของการ์ดภาพยนตร์ */
+    border-radius: 8px; /* มุมโค้งมนของการ์ด */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* เงาของการ์ด */
+    overflow: hidden; /* ซ่อนส่วนที่เกินของการ์ด */
+    width: 100%; /* ความกว้างของการ์ดเต็ม */
+    text-align: center; /* จัดข้อความภายในการ์ดให้อยู่กลาง */
+    padding: 10px; /* ระยะห่างภายในการ์ด */
+    transition: transform 0.3s, box-shadow 0.3s; /* การเปลี่ยนแปลงการเคลื่อนไหวและเงาของการ์ด */
+}
+
+.movie-card:hover {
+    transform: translateY(-10px); /* เมื่อ hover การ์ดจะยกขึ้น */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* เพิ่มเงาขึ้นเมื่อ hover */
+}
+
+.movie-card img {
+    width: 50%; /* กำหนดให้ภาพในการ์ดมีความกว้าง 50% */
+    height: 300px; /* กำหนดความสูงของภาพ */
+    object-fit: cover; /* ทำให้ภาพครอบตัดและพอดีกับกรอบ */
+    border-radius: 8px; /* ทำให้มุมของภาพมีความโค้งมน */
+}
+
+.movie-info {
+    margin-top: 10px; /* ระยะห่างด้านบนของเนื้อหาภายในการ์ด */
+}
+
+.movie-info h3 {
+    font-size: 1.4rem; /* ขนาดตัวอักษรของชื่อภาพยนตร์ */
+    color: #003366; /* สีของชื่อภาพยนตร์ */
+    margin: 10px 0; /* เว้นระยะห่างด้านบนและล่าง */
+}
+
+.movie-info p {
+    font-size: 1rem; /* ขนาดตัวอักษรของคำอธิบาย */
+    color: #666; /* สีของคำอธิบาย */
+    margin-bottom: 15px; /* เว้นระยะห่างด้านล่าง */
+}
+
+/* Showtime options */
+.showtime-options {
+    display: flex; /* ใช้ Flexbox สำหรับจัดแสดงปุ่มรอบฉาย */
+    justify-content: center; /* จัดตำแหน่งปุ่มให้อยู่กลาง */
+    gap: 10px; /* ระยะห่างระหว่างปุ่ม */
+    margin-top: 15px; /* ระยะห่างด้านบน */
+    flex-wrap: wrap; /* เมื่อขนาดหน้าจอลดลงให้ปุ่มขยับไปยังบรรทัดถัดไป */
+}
+
+.showtime-btn {
+    background-color: #003366df; /* สีพื้นหลังของปุ่มรอบฉาย */
+    color: white; /* สีของข้อความในปุ่ม */
+    padding: 0.5rem 1rem; /* ระยะห่างภายในของปุ่ม */
+    font-size: 1rem; /* ขนาดตัวอักษรของปุ่ม */
+    border: none; /* ลบขอบของปุ่ม */
+    border-radius: 35px; /* มุมโค้งมนของปุ่ม */
+    cursor: pointer; /* เปลี่ยนเคอร์เซอร์เป็นรูปมือเมื่อ hover */
+    transition: background-color 0.5s; /* การเปลี่ยนสีพื้นหลังเมื่อ hover */
+    width: auto; /* ทำให้ความกว้างของปุ่มปรับตัวตามขนาด */
+}
+
+/* ปรับขนาดปุ่มให้เหมาะสมกับหน้าจอมือถือ */
+@media (max-width: 768px) {
+    .showtime-btn {
+        font-size: 0.9rem; /* ลดขนาดฟอนต์ให้เล็กลง */
+        padding: 0.4rem 0.8rem; /* ปรับระยะห่างภายในให้เหมาะสม */
+    }
+}
+
+/* เมื่อขนาดหน้าจอเล็กกว่า 480px (มือถือ) */
+@media (max-width: 480px) {
+    .showtime-options {
+        gap: 8px; /* ลดระยะห่างระหว่างปุ่ม */
+    }
+
+    .showtime-btn {
+        font-size: 0.8rem; /* ขนาดตัวอักษรเล็กลง */
+        padding: 0.3rem 0.7rem; /* ลดขนาด padding */
+    }
+}
+
+/* Responsive Design */
+
+/* เมื่อขนาดหน้าจอเล็กกว่า 768px */
+@media (max-width: 768px) {
+    .movie-cards {
+        grid-template-columns: repeat(2, 1fr); /* ใช้ 2 คอลัมน์ */
+    }
+
+    .movie-card {
+        width: 80%; /* กำหนดความกว้างของการ์ดให้เหลือ 80% */
+    }
+}
+
+/* เมื่อขนาดหน้าจอเล็กกว่า 480px */
+@media (max-width: 480px) {
+    .movie-cards {
+        grid-template-columns: 1fr; /* ใช้ 1 คอลัมน์ */
+    }
+
+    .movie-card {
+        width: 100%; /* กำหนดความกว้างของการ์ดให้เต็ม 100% */
+    }
+}
+
+
+/* Modal Styles */
+.modal {
+    display: none; /* ซ่อน modal โดยเริ่มต้น */
+    position: fixed; /* ใช้ตำแหน่งแบบ fixed เพื่อยึด modal ไว้ที่ตำแหน่งบนหน้าจอ */
+    z-index: 1000; /* กำหนดลำดับการแสดงของ modal ให้อยู่ด้านบนสุด */
+    left: 0; /* เริ่มต้นจากขอบซ้ายของหน้าจอ */
+    top: 0; /* เริ่มต้นจากขอบบนของหน้าจอ */
+    width: 100%; /* ให้ modal ครอบคลุมทั้งความกว้างของหน้าจอ */
+    height: 100%; /* ให้ modal ครอบคลุมทั้งความสูงของหน้าจอ */
+    overflow: auto; /* ให้มีการเลื่อนเมื่อเนื้อหาภายใน modal เกินขนาด */
+    background-color: rgba(0, 0, 0, 0.5); /* สีพื้นหลังของ modal เป็นสีดำโปร่งแสง */
+}
+
+.modal-content {
+    background-color: #fff; /* สีพื้นหลังของเนื้อหาใน modal */
+    margin: 10% auto; /* ตั้งค่าให้เนื้อหาของ modal อยู่ตรงกลางหน้าจอ (10% จากด้านบน) */
+    padding: 20px; /* ระยะห่างภายในเนื้อหาของ modal */
+    border: 1px solid #888; /* ขอบสีเทาอ่อนรอบ ๆ เนื้อหา */
+    width: 50%; /* ความกว้างของ modal-content คือ 50% ของหน้าจอ */
+    text-align: center; /* จัดข้อความใน modal ให้อยู่ตรงกลาง */
+    border-radius: 8px; /* มุมโค้งมนของ modal-content */
+}
+
+.close-btn {
+    color: #aaa; /* สีของปุ่มปิดเป็นสีเทา */
+    float: right; /* ให้ปุ่มปิดอยู่ที่มุมขวาของ modal */
+    font-size: 28px; /* ขนาดตัวอักษรของปุ่มปิด */
+    font-weight: bold; /* ทำให้ตัวอักษรของปุ่มปิดหนา */
+    cursor: pointer; /* เปลี่ยนเคอร์เซอร์เป็นรูปมือเมื่อชี้ที่ปุ่มปิด */
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: black; /* เปลี่ยนสีของปุ่มปิดเป็นสีดำเมื่อ hover หรือ focus */
+    text-decoration: none; /* ลบขีดเส้นใต้เมื่อ hover หรือ focus */
+}
+
+.confirm-btn {
+    background-color: #007bff; /* พื้นหลังของปุ่มยืนยันเป็นสีน้ำเงิน */
+    color: white; /* ตัวอักษรของปุ่มยืนยันเป็นสีขาว */
+    padding: 10px 20px; /* ระยะห่างภายในของปุ่มยืนยัน */
+    border: none; /* ลบเส้นขอบของปุ่ม */
+    border-radius: 50px; /* มุมโค้งมนของปุ่มยืนยัน */
+    cursor: pointer; /* เปลี่ยนเคอร์เซอร์เป็นรูปมือเมื่อชี้ที่ปุ่ม */
+}
+
+/* เมื่อ hover ที่ปุ่มยืนยัน */
+.confirm-btn:hover {
+    background-color: #0056b3; /* เปลี่ยนพื้นหลังของปุ่มยืนยันเป็นสีฟ้าทึบเมื่อ hover */
+}
+
+
+/* Seat Selection */
+
+/* การจัดสไตล์พื้นฐานสำหรับที่นั่ง */
+.seat {
+    margin: 5px; /* ระยะห่างระหว่างที่นั่ง */
+    padding: 15px; /* ระยะห่างภายในของที่นั่ง */
+    background-color: #ddd; /* สีพื้นหลังเริ่มต้นของที่นั่ง */
+    border: 1px solid #aaa; /* กำหนดขอบสีเทา */
+    cursor: pointer; /* เปลี่ยนเคอร์เซอร์เป็นรูปมือเมื่อชี้ */
+    border-radius: 50px; /* มุมกล่องโค้งมน */
+}
+
+/* สไตล์ข้อความที่แสดงชนิดที่นั่ง */
+#seat-info p {
+    font-size: 16px;
+    margin: 10px 0;
+}
+
+/* สไตล์สำหรับข้อความ Normal seat */
+.normal-seat {
+    color: #ecd896; /* สีปกติ */
+    font-weight: bold;
+}
+
+/* สไตล์สำหรับข้อความ VIP seats */
+.vip-seat {
+    color: #ecd896; /* สีทองอ่อนสำหรับ VIP */
+    font-weight: bold; /* ทำให้ตัวหนา */
+}
+
+
+/* สไตล์เมื่อที่นั่งถูกเลือก */
+.seat.selected {
+    background-color: #1e1e23; /* เปลี่ยนสีพื้นหลังเป็นสีเข้ม */
+    color: #ff0909; /* เปลี่ยนสีข้อความเป็นสีแดง */
+}
+
+/* สไตล์สำหรับที่นั่งแบบ VIP */
+.seat.vip {
+    background-color: #ecd896; /* พื้นหลังสีทองอ่อน */
+}
+
+/* การจัดแถวของที่นั่ง */
+.row {
+    display: flex; /* จัดตำแหน่งให้อยู่ในแถวเดียว */
+    justify-content: center; /* จัดแถวให้อยู่ตรงกลาง */
+}
+
+/* Modal Styling */
+.modal {
+    display: none; /* ซ่อน Modal โดยค่าเริ่มต้น */
+    position: fixed; /* ตำแหน่ง Modal ยึดกับหน้าจอ */
+    top: 0; /* เริ่มต้นจากด้านบนของหน้าจอ */
+    left: 0; /* เริ่มต้นจากด้านซ้ายของหน้าจอ */
+    width: 100%; /* ให้ Modal ครอบคลุมความกว้างทั้งหน้าจอ */
+    height: 100%; /* ให้ Modal ครอบคลุมความสูงทั้งหน้าจอ */
+    background-color: rgba(0, 0, 0, 0.5); /* สีพื้นหลังแบบโปร่งแสง */
+    justify-content: center; /* จัดเนื้อหากึ่งกลางแนวนอน */
+    align-items: center; /* จัดเนื้อหากึ่งกลางแนวตั้ง */
+}
+
+/* เนื้อหาใน Modal */
+.modal-content {
+    background-color: rgba(31, 29, 29, 0.899); /* สีพื้นหลังของเนื้อหา Modal */
+    padding: 30px; /* ระยะห่างภายในเนื้อหา */
+    border-radius: 35px; /* มุมกล่องโค้งมน */
+    width: 60%; /* กำหนดความกว้าง 50% ของหน้าจอ */
+    text-align: center; /* จัดข้อความกึ่งกลาง */
+    line-height: 1.8; /* เพิ่มระยะห่างระหว่างบรรทัด */
+}
+
+/* ปุ่มปิด Modal */
+.close-btn {
+    float: right; /* จัดปุ่มให้อยู่ขอบด้านขวา */
+    cursor: pointer; /* เปลี่ยนเคอร์เซอร์เป็นรูปมือเมื่อชี้ */
+    font-size: 20px; /* ขนาดตัวอักษร */
+}
+
+/* เพิ่มระยะห่างระหว่างข้อความ "ที่นั่งที่เลือก" */
+#summary h4 {
+    margin-top: 20px; /* เพิ่มระยะห่างด้านบน */
+    margin-bottom: 10px;/* เพิ่มระยะห่างด้านล่าง */
+}
+#summary p {
+    margin-top: 20px; /* เพิ่มระยะห่างด้านบน */
+    margin-bottom: 10px;/* เพิ่มระยะห่างด้านล่าง */
+}
+
+/* การจัดรูปแบบสำหรับที่นั่งที่เลือกให้แสดงในบรรทัดเดียวกัน */
+#selected-seats {
+    list-style: none; /* ลบจุดจากรายการ */
+    padding: 0;
+    margin: 0;
+    display: flex; /* ใช้ Flexbox เพื่อจัดให้อยู่ในบรรทัดเดียว */
+    justify-content: center; /* จัดรายการที่นั่งให้อยู่ตรงกลาง */
+    flex-wrap: wrap; /* ถ้าที่นั่งเยอะเกินไปให้ขึ้นบรรทัดใหม่ */
+    gap: 5px; /* เว้นระยะห่างระหว่างที่นั่ง */
+}
+
+/* รายการที่นั่งใน #selected-seats */
+#selected-seats li {
+    font-size: 14px;
+    background-color: #ff0909da;
+    padding: 5px 10px;
+    border-radius: 50px;
+    display: inline-block; /* ให้แต่ละที่นั่งแสดงในบรรทัดเดียวกัน */
+}
+
+
